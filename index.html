@@ -22,6 +22,9 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
       <title>Fluent City Form</title>
 </head>
 <body>
@@ -68,10 +71,14 @@
      <textarea id='formMessage' class='form-textarea' name='message' required> </textarea>
     </fieldset>
 
-    <div className='form-group'>
+    <div class='form-group' id='submit-btn'>
      <input id='formButton' class='btn' type='submit' disabled>
     </div>
    </form>
+
+   <div class="warning hover-hide hidden">
+    <span class="hidden-content">* The Email field is required *
+   </div>
 
    </article>
 
@@ -86,6 +93,28 @@
 </div>  <!-- wrapper -->
 
 
-<script type="text/javascript"></script>
+<script type="text/javascript">
+
+// $('#submit-btn').hover(function(){
+//   //alert("Email field is required");
+//    $(this).attr('disabled','disabled');
+//     // $('.hover-hide').show();
+//     $('.hover-hide').toggleClass('hidden');
+// });
+
+
+// $(".warning").hover(function(){
+//       $('.hover-hide').toggleClass('hidden');
+// });
+
+
+// $(".warning").hover(function(){
+//     $('.hover-hide').show();
+// },function(){
+//     $('.hover-hide').hide();
+// });
+
+
+</script>
 </body>
 </html>

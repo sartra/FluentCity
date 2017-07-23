@@ -210,18 +210,41 @@ textarea {
 
  &:disabled{
     opacity: 0.3;
+    background-color: grey;
   }
 
 }
 
 
-input[type="submit"]:disabled:hover {
-    cursor: not-allowed;
+
+.warning {
+  width: 300px;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: tomato;
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+  /*text-transform: uppercase;*/
+  border: 1px solid transparent;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
+  border-radius: $radius;
 }
 
+/*.hidden { visibility:hidden; }
+*/
 
+.hover-hide{
+   /*display:none;*/
+/*   visibility: hidden;
+*/}
 
-
+.hidden-content {
+  position: relative;
+  transition: top 0.3s;
+  overflow: hidden;
+}
 
 @media all and (min-width: 600px) {
   .aside { flex: 1 auto; }
