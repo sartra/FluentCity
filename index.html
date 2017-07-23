@@ -51,7 +51,7 @@
 
      <fieldset class='form-group'>
        <label>
-         Email:
+         <span class='asterick'>* </span>Email:
        </label>
 
        <input id='formEmail' class='form-input' name='email' type='email' required >
@@ -68,17 +68,17 @@
      <fieldset class='form-group'>
        <label>Message:</label>
 
-       <textarea id='formMessage' class='form-textarea' name='message' required=""> </textarea>
+       <textarea id='formMessage' class='form-textarea' name='message' > </textarea>
      </fieldset>
 
      <div class='form-group' id='submit-btn'>
        <input id='formButton' class='btn' type='submit' disabled>
 
        <div class="warning">
-        <span class="hidden-content">* The Email field is required *
-        </span>
-
+          <span class="hidden-content">* The Email field is required
+         </span>
       </div>
+
     </div>
 
     </form>

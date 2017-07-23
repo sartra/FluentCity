@@ -233,40 +233,43 @@ textarea {
 .btn:hover+.warning {
    display: block;
    position: absolute;
+   visibility: visible;
+
+
 }
 
-:required {
+
+/*:required {
   background: rgba(tomato, 0.1);
+}*/
+
+.asterick {
+  color: tomato;
 }
 
 
 .warning {
-  width: 300px;
+  /*width: 300px;*/
   margin: 0 auto;
   padding: 10px;
   background-color: tomato;
   font-size: 18px;
   margin-top: 10px;
   text-align: center;
-  /*text-transform: uppercase;*/
   border: 1px solid transparent;
-  /*box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);*/
+  box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07);
   border-radius: $radius;
   display: none;
- /* visibility: hidden;*/
-}
-
-.no-warning {
-  background-color: white;
-  color:white;
+  /*visibility: hidden;*/
+  /*transition: all 0.3s;*/
 }
 
 
 .hidden-content {
-  position: relative;
+/*  position: relative;
   transition: all 0.3s;
-  overflow: hidden;
-  color: $color-primary;
+  overflow: hidden;*/
+  color: white;
 }
 
 
