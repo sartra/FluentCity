@@ -219,16 +219,19 @@ textarea {
   outline: 0;
 }
 
-/*&:disabled{
+&:disabled{
   opacity: 0.3;
-  background-color: grey;
+  /*background-color: grey;*/
 
-}*/
+}
 
 }
 
 /*.btn:hover .warning {visibility:visible;}*/
 
+:required {
+  background: rgba(tomato, 0.1);
+}
 
 
 .warning {
@@ -259,19 +262,13 @@ textarea {
   color: $color-primary;
 }
 
-/*.hidden { visibility:hidden; }
-*/
+
 
 input[type="submit"]:disabled:hover {
     cursor: not-allowed;
 }
 
 
-/*.hover-hide{
-   display:none;
-   visibility: hidden;
-}
-*/
 
 
 @media all and (min-width: 600px) {

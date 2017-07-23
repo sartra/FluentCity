@@ -164,11 +164,6 @@ textarea {
   cursor: pointer;
   user-select: none;
   transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
-  /*&:disabled{
-    opacity: 0.3;
-    background-color: grey;
-  
-  }*/
 }
 .btn:focus, .btn:hover {
   background-color: #ffbc2c;
@@ -186,8 +181,16 @@ textarea {
 .btn:focus {
   outline: 0;
 }
+.btn:disabled {
+  opacity: 0.3;
+  /*background-color: grey;*/
+}
 
 /*.btn:hover .warning {visibility:visible;}*/
+:required {
+  background: rgba(255, 99, 71, 0.1);
+}
+
 .warning {
   width: 300px;
   margin: 0 auto;
@@ -215,17 +218,10 @@ textarea {
   color: #ffd16e;
 }
 
-/*.hidden { visibility:hidden; }
-*/
 input[type="submit"]:disabled:hover {
   cursor: not-allowed;
 }
 
-/*.hover-hide{
-   display:none;
-   visibility: hidden;
-}
-*/
 @media all and (min-width: 600px) {
   .aside {
     flex: 1 auto;
