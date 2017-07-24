@@ -71,16 +71,16 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
 
 
      <fieldset class='form-group'>
-       <label>Message:</label>
+       <label><span class='asterick'>* </span>Message:</label>
 
-       <textarea id='message' class='form-textarea' name='message' > </textarea>
+       <textarea id='message' class='form-textarea' name='message' onblur='validate()' > </textarea>
      </fieldset>
 
      <div class='form-group' id='submit-btn'>
        <input class='btn' type='submit' id="submit" disabled="disabled">
 
-       <div class="warning">
-          <span class="hidden-content">* The Email field is required
+       <div id="warning">
+          <span class="hidden-content">* Email field is required
          </span>
       </div>
 
@@ -106,15 +106,20 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
   <script type="text/javascript">
 
 
+
+
   function validate() {
 
     var valid = true;
-    valid = checkEmpty($("#name"));
+    valid = checkEmpty($("#message"));
     valid = valid && checkEmail($("#email"));
 
     $("#submit").attr("disabled",true);
     if(valid) {
       $("#submit").attr("disabled",false);
+      var parent = document.getElementById("submit-btn");
+      var child = document.getElementById("warning");
+      parent.removeChild(child);
     }
   }
 
@@ -123,13 +128,14 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
     $("."+name+"-validation").html("");
     $(obj).css("border","");
     if($(obj).val() == "") {
-      $(obj).css("border","#FF0000 1px solid");
+      $(obj).css("border","tomato 1px solid");
       $("."+name+"-validation").html("Required");
       return false;
     }
 
     return true;
   }
+
 
   function checkEmail(obj) {
     var result = true;
@@ -141,7 +147,7 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
     result = checkEmpty(obj);
 
     if(!result) {
-      $(obj).css("border","#FF0000 1px solid");
+      $(obj).css("border","tomato 1px solid");
       $("."+name+"-validation").html("Required");
       return false;
     }
@@ -150,7 +156,7 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
     result = email_regex.test($(obj).val());
 
     if(!result) {
-      $(obj).css("border","#FF0000 1px solid");
+      $(obj).css("border","tomato 1px solid");
       $("."+name+"-validation").html("Invalid");
       return false;
     }
