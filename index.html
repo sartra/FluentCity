@@ -24,6 +24,10 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<!-- jQuery Validation plugin CDN
+https://www.jsdelivr.com/projects/jquery.validation  -->
+ <!--  <script src="js/jquery.validate.min.js"></script> -->
+
 
   <title>Fluent City Form</title>
 </head>
@@ -42,10 +46,10 @@
 
       <fieldset class='form-group'>
         <label>
-         Full Name:
+         Name:
        </label>
 
-       <input id='formName' class='form-input' name='name' type='text' >
+       <input id='name' class='form-input' name='name' type='text' onblur='validate()' >
      </fieldset>
 
 
@@ -53,26 +57,27 @@
        <label>
          <span class='asterick'>* </span>Email:
        </label>
-
-       <input id='formEmail' class='form-input' name='email' type='email' required >
+<!--        <span class="email-validation validation-error"></span>
+ -->
+       <input id='email' class='form-input' name='email' type='email' onblur='validate()' >
      </fieldset>
 
 
      <fieldset class='form-group'>
        <label>Subject:</label>
 
-       <input id='formSubject' class='form-input' name='subject' type='text'>
+       <input id='subject' class='form-input' name='subject' type='text'>
      </fieldset>
 
 
      <fieldset class='form-group'>
        <label>Message:</label>
 
-       <textarea id='formMessage' class='form-textarea' name='message' > </textarea>
+       <textarea id='message' class='form-textarea' name='message' > </textarea>
      </fieldset>
 
      <div class='form-group' id='submit-btn'>
-       <input id='formButton' class='btn' type='submit' disabled>
+       <input class='btn' type='submit' id="submit" disabled="disabled">
 
        <div class="warning">
           <span class="hidden-content">* The Email field is required
@@ -100,21 +105,60 @@
 
   <script type="text/javascript">
 
-// $('#submit-btn').hover(function(){
-//   //alert("Email field is required");
-//    $(this).attr('disabled','disabled');
-//     // $('.hover-hide').show();
-//     $('.warning).toggleClass('hidden');
-// });
 
+  function validate() {
 
-// $(".warning").hover(function(){
-//       $('.hover-hide').toggleClass('hidden');
-// });
+    var valid = true;
+    valid = checkEmpty($("#name"));
+    valid = valid && checkEmail($("#email"));
 
+    $("#submit").attr("disabled",true);
+    if(valid) {
+      $("#submit").attr("disabled",false);
+    }
+  }
 
+  function checkEmpty(obj) {
+    var name = $(obj).attr("name");
+    $("."+name+"-validation").html("");
+    $(obj).css("border","");
+    if($(obj).val() == "") {
+      $(obj).css("border","#FF0000 1px solid");
+      $("."+name+"-validation").html("Required");
+      return false;
+    }
 
+    return true;
+  }
+
+  function checkEmail(obj) {
+    var result = true;
+
+    var name = $(obj).attr("name");
+    $("."+name+"-validation").html("");
+    $(obj).css("border","");
+
+    result = checkEmpty(obj);
+
+    if(!result) {
+      $(obj).css("border","#FF0000 1px solid");
+      $("."+name+"-validation").html("Required");
+      return false;
+    }
+
+    var email_regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,3})+$/;
+    result = email_regex.test($(obj).val());
+
+    if(!result) {
+      $(obj).css("border","#FF0000 1px solid");
+      $("."+name+"-validation").html("Invalid");
+      return false;
+    }
+
+    return result;
+  }
 
 </script>
+
 </body>
 </html>
