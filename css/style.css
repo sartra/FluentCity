@@ -228,6 +228,11 @@ input[type="submit"]:disabled:hover {
   cursor: not-allowed;
 }
 
+/* Change the chrome auto fill to white */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
 @media all and (min-width: 600px) {
   .aside {
     flex: 1 auto;
