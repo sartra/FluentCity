@@ -29,7 +29,7 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
  <!--  <script src="js/jquery.validate.min.js"></script> -->
 
 
-  <title>Fluent City Form</title>
+  <title>Fluent City Contact Us Form</title>
 </head>
 <body>
 
@@ -57,8 +57,7 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
        <label>
          <span class='asterick'>* </span>Email:
        </label>
-<!--        <span class="email-validation validation-error"></span>
- -->
+
        <input id='email' class='form-input' name='email' type='email' onblur='validate()' >
      </fieldset>
 
@@ -71,9 +70,9 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
 
 
      <fieldset class='form-group'>
-       <label><span class='asterick'>* </span>Message:</label>
+       <label>Message:</label>
 
-       <textarea id='message' class='form-textarea' name='message' onblur='validate()' > </textarea>
+       <textarea id='message' class='form-textarea' name='message' > </textarea>
      </fieldset>
 
      <div class='form-group' id='submit-btn'>
@@ -106,13 +105,14 @@ https://www.jsdelivr.com/projects/jquery.validation  -->
   <script type="text/javascript">
 
 
-
-
+// check if email field is valid
+// & make submit enabled if email is valid
   function validate() {
 
     var valid = true;
-    valid = checkEmpty($("#message"));
-    valid = valid && checkEmail($("#email"));
+    // valid = checkEmpty($("#message"));
+    // valid = valid && checkEmail($("#email"));
+    valid = checkEmail($("#email"));
 
     $("#submit").attr("disabled",true);
     if(valid) {
